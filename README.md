@@ -1,4 +1,3 @@
-
 # Progetto PhotoSi
 
 ## Descrizione
@@ -20,7 +19,12 @@ ma può essere eseguito anche senza container per una configurazione locale.
 
 ### 1. Clona il Progetto
 
-Poiché il progetto non è sotto controllo versione Git, copia manualmente tutti i file sorgenti nella tua cartella di lavoro locale.
+Poiché il progetto è sotto versionamento, puoi clonare il repository direttamente utilizzando Git. Esegui il comando:
+
+```bash
+git clone https://github.com/davidedg87/order_management.git
+cd order_management
+```
 
 ### 2. Configurazione dell'Ambiente
 
@@ -119,6 +123,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/users`: Crea un nuovo utente.
   - `PUT /api/users/{id}`: Modifica un utente esistente.
   - `DELETE /api/users/{id}`: Elimina un utente.
+  - `POST /api/users/paginate`: Ricerca paginata utenti
 
 - **Gestione Ordini**:
   - `GET /api/orders/{id}`: Ottieni un ordine specifico per ID, insieme ai dettagli dell'indirizzo, codice prodotto e nome utente.
@@ -126,6 +131,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/orders`: Crea un nuovo ordine. Verifica che l'indirizzo, l'utente e i prodotti esistano prima di creare l'ordine.
   - `PUT /api/orders/{id}`: Modifica un ordine esistente. Verifica che l'ordine, l'indirizzo, l'utente e i prodotti esistano prima dell'aggiornamento.
   - `DELETE /api/orders/{id}`: Elimina un ordine specifico.
+  - `POST /api/orders/paginate`: Ricerca paginata ordini
 
 **Gestione Indirizzi**:
   - `GET /api/addresses/{id}`: Ottieni un indirizzo specifico per ID.
@@ -133,6 +139,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/addresses`: Crea un nuovo indirizzo.
   - `PUT /api/addresses/{id}`: Modifica un indirizzo esistente. Verifica che l'indirizzo esista prima dell'aggiornamento.
   - `DELETE /api/addresses/{id}`: Elimina un indirizzo specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
+  - `POST /api/addresses/paginate`: Ricerca paginata indirizzi
 
 **Gestione Prodotti**:
   - `GET /api/products/{id}`: Ottieni un prodotto specifico per ID.
@@ -140,6 +147,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/products`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
   - `PUT /api/products/{id}`: Modifica un prodotto esistente. Verifica che il prodotto esista, che la categoria sia valida e che il prezzo sia non negativo.
   - `DELETE /api/products/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
+  - `POST /api/products/paginate`: Ricerca paginata prodotti
 
 **Gestione Categorie Prodotti**:
   - `GET /api/productcategories/{id}`: Ottieni una categoria di prodotto specifica per ID.
@@ -147,12 +155,18 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/productcategories`: Crea una nuova categoria di prodotto.
   - `PUT /api/productcategories/{id}`: Modifica una categoria di prodotto esistente. Verifica che la categoria esista.
   - `DELETE /api/productcategories/{id}`: Elimina una categoria di prodotto. La categoria non può essere eliminata se ha prodotti associati.
+  - `POST /api/productcategories/paginate`: Ricerca paginata categorie di prodotto
 
-Porta di ascolto per le API
-In ambiente locale (senza Docker):HTTP: http://localhost:5172 ,HTTPS: https://localhost:7101
-In ambiente Docker: La porta interna del container Docker è configurata su 5002.
+Porta di ascolto per le API:
+- In ambiente locale (senza Docker):  
+  HTTP: `http://localhost:5172`  
+  HTTPS: `https://localhost:7101`
 
+- In ambiente Docker:  
+  La porta interna del container Docker è configurata su `5002`.
   
+-Nel repo è disponibile il file "postman_collection.json" da importare in Postman per avere l'elenco delle API da invocare sul progetto [ impostato per funzionare sulla porta 5002 quindi con container docker running]
+
 ### 4. Testing
 
 Per eseguire i test unitari:
@@ -172,24 +186,3 @@ I container PostgreSQL sono configurati per utilizzare un volume persistente per
 ```yaml
 volumes:
   postgres_data:
-```
-
-Inoltre, i container sono configurati per comunicare su una rete interna denominata `app_network`:
-
-```yaml
-networks:
-  app_network:
-    driver: bridge
-```
-
-### 6. Considerazioni sull'Ambiente di Produzione
-
-Quando si passa a un ambiente di produzione:
-
-1. **Configurazione di Produzione**:
-   - La stringa di connessione e l'ambiente ASP.NET Core dovrebbero essere configurati nel file `appsettings.Production.json` o tramite variabili di ambiente.
-  
-2. **Sicurezza**:
-   - In un ambiente di produzione, accertati di configurare correttamente la gestione delle credenziali, l'accesso al database e le connessioni sicure.
-
----

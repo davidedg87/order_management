@@ -775,6 +775,25 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5002/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

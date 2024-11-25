@@ -1,4 +1,4 @@
-namespace PhotoSiTest.AddressService.Core
+﻿namespace PhotoSiTest.AddressService.Core
 {
     public class MarkerAddressCore
     {

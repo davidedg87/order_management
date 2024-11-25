@@ -1,4 +1,7 @@
-﻿using PhotoSi.AddressService.Data;
+using PhotoSi.AddressService.Data;
+using PhotoSi.ProductService.Data;
+using PhotoSiTest.OrderService.Data;
+using PhotoSiTest.UserService.Data;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -14,7 +17,11 @@ namespace PhotoSiTest.API.Extensions
                 connectionString: configuration["ConnectionStrings:DefaultConnection"]!,
                 name: "postgresql",
                 tags: new[] { "db", "postgres" })
-            .AddDbContextCheck<AddressContext>();
+            .AddDbContextCheck<AddressContext>()
+            .AddDbContextCheck<OrderContext>()
+            .AddDbContextCheck<ProductContext>()
+            .AddDbContextCheck<UserContext>();
+
         }
     }
 }

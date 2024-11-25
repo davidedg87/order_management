@@ -165,7 +165,7 @@ Porta di ascolto per le API:
 - In ambiente Docker:  
   La porta interna del container Docker è configurata su `5002`.
 
-- **Catalogo API Json** 
+**Catalogo API Json** 
 	Nel repo è disponibile il file "postman_collection.json" da importare in Postman per avere l'elenco delle API da invocare sul progetto [ impostato per funzionare sulla porta 5002 quindi con container docker running]
 
 ### 4. Testing

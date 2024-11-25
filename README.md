@@ -121,44 +121,44 @@ Le seguenti API sono disponibili nell'applicazione:
   - `GET /health`: Stato DB e DBContext associati 
 
 - **Gestione Utenti**:
-  - `GET /api/users/{id}`: Ottieni un utente specifico per ID.
-  - `GET /api/users`: Ottieni tutti gli utenti.
-  - `POST /api/users`: Crea un nuovo utente.
-  - `PUT /api/users/{id}`: Modifica un utente esistente.
-  - `DELETE /api/users/{id}`: Elimina un utente.
-  - `POST /api/users/paginate`: Ricerca paginata utenti
+  - `GET /api/user/{id}`: Ottieni un utente specifico per ID.
+  - `GET /api/user`: Ottieni tutti gli utenti.
+  - `POST /api/user`: Crea un nuovo utente.
+  - `PUT /api/user/{id}`: Modifica un utente esistente.
+  - `DELETE /api/user/{id}`: Elimina un utente.
+  - `POST /api/user/paginate`: Ricerca paginata utenti
 
 - **Gestione Ordini**:
-  - `GET /api/orders/{id}`: Ottieni un ordine specifico per ID, insieme ai dettagli dell'indirizzo, codice prodotto e nome utente.
-  - `GET /api/orders`: Ottieni tutti gli ordini con i dettagli completi (indirizzo, codici dei prodotti e nome utente).
-  - `POST /api/orders`: Crea un nuovo ordine. Verifica che l'indirizzo, l'utente e i prodotti esistano prima di creare l'ordine.
-  - `PUT /api/orders/{id}`: Modifica un ordine esistente. Verifica che l'ordine, l'indirizzo, l'utente e i prodotti esistano prima dell'aggiornamento.
-  - `DELETE /api/orders/{id}`: Elimina un ordine specifico.
-  - `POST /api/orders/paginate`: Ricerca paginata ordini
+  - `GET /api/order/{id}`: Ottieni un ordine specifico per ID, insieme ai dettagli dell'indirizzo, codice prodotto e nome utente.
+  - `GET /api/order`: Ottieni tutti gli ordini con i dettagli completi (indirizzo, codici dei prodotti e nome utente).
+  - `POST /api/order`: Crea un nuovo ordine. Verifica che l'indirizzo, l'utente e i prodotti esistano prima di creare l'ordine.
+  - `PUT /api/order/{id}`: Modifica un ordine esistente. Verifica che l'ordine, l'indirizzo, l'utente e i prodotti esistano prima dell'aggiornamento.
+  - `DELETE /api/order/{id}`: Elimina un ordine specifico.
+  - `POST /api/order/paginate`: Ricerca paginata ordini
 
 - **Gestione Indirizzi**:
-  - `GET /api/addresses/{id}`: Ottieni un indirizzo specifico per ID.
-  - `GET /api/addresses`: Ottieni tutti gli indirizzi.
-  - `POST /api/addresses`: Crea un nuovo indirizzo.
-  - `PUT /api/addresses/{id}`: Modifica un indirizzo esistente. Verifica che l'indirizzo esista prima dell'aggiornamento.
-  - `DELETE /api/addresses/{id}`: Elimina un indirizzo specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
-  - `POST /api/addresses/paginate`: Ricerca paginata indirizzi
+  - `GET /api/address/{id}`: Ottieni un indirizzo specifico per ID.
+  - `GET /api/address`: Ottieni tutti gli indirizzi.
+  - `POST /api/address`: Crea un nuovo indirizzo.
+  - `PUT /api/address/{id}`: Modifica un indirizzo esistente. Verifica che l'indirizzo esista prima dell'aggiornamento.
+  - `DELETE /api/address/{id}`: Elimina un indirizzo specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
+  - `POST /api/address/paginate`: Ricerca paginata indirizzi
 
  - **Gestione Prodotti**:
-  - `GET /api/products/{id}`: Ottieni un prodotto specifico per ID.
-  - `GET /api/products`: Ottieni tutti i prodotti.
-  - `POST /api/products`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
-  - `PUT /api/products/{id}`: Modifica un prodotto esistente. Verifica che il prodotto esista, che la categoria sia valida e che il prezzo sia non negativo.
-  - `DELETE /api/products/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
-  - `POST /api/products/paginate`: Ricerca paginata prodotti
+  - `GET /api/product/{id}`: Ottieni un prodotto specifico per ID.
+  - `GET /api/product`: Ottieni tutti i prodotti.
+  - `POST /api/product`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
+  - `PUT /api/product/{id}`: Modifica un prodotto esistente. Verifica che il prodotto esista, che la categoria sia valida e che il prezzo sia non negativo.
+  - `DELETE /api/product/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
+  - `POST /api/product/paginate`: Ricerca paginata prodotti
 
 - **Gestione Categorie Prodotti**:
-  - `GET /api/productcategories/{id}`: Ottieni una categoria di prodotto specifica per ID.
-  - `GET /api/productcategories`: Ottieni tutte le categorie di prodotto.
-  - `POST /api/productcategories`: Crea una nuova categoria di prodotto.
-  - `PUT /api/productcategories/{id}`: Modifica una categoria di prodotto esistente. Verifica che la categoria esista.
-  - `DELETE /api/productcategories/{id}`: Elimina una categoria di prodotto. La categoria non può essere eliminata se ha prodotti associati.
-  - `POST /api/productcategories/paginate`: Ricerca paginata categorie di prodotto
+  - `GET /api/productcategory/{id}`: Ottieni una categoria di prodotto specifica per ID.
+  - `GET /api/productcategory`: Ottieni tutte le categorie di prodotto.
+  - `POST /api/productcategory`: Crea una nuova categoria di prodotto.
+  - `PUT /api/productcategory/{id}`: Modifica una categoria di prodotto esistente. Verifica che la categoria esista.
+  - `DELETE /api/productcategory/{id}`: Elimina una categoria di prodotto. La categoria non può essere eliminata se ha prodotti associati.
+  - `POST /api/productcategory/paginate`: Ricerca paginata categorie di prodotto
 
 Porta di ascolto per le API:
 - In ambiente locale (senza Docker):  

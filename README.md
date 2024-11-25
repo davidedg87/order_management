@@ -145,12 +145,12 @@ Le seguenti API sono disponibili nell'applicazione:
   - `POST /api/address/paginate`: Ricerca paginata indirizzi
 
  - **Gestione Prodotti**:
-  - `GET /api/product/{id}`: Ottieni un prodotto specifico per ID.
-  - `GET /api/product`: Ottieni tutti i prodotti.
-  - `POST /api/product`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
-  - `PUT /api/product/{id}`: Modifica un prodotto esistente. Verifica che il prodotto esista, che la categoria sia valida e che il prezzo sia non negativo.
-  - `DELETE /api/product/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
-  - `POST /api/product/paginate`: Ricerca paginata prodotti
+   - `GET /api/product/{id}`: Ottieni un prodotto specifico per ID.
+   - `GET /api/product`: Ottieni tutti i prodotti.
+   - `POST /api/product`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
+   - `PUT /api/product/{id}`: Modifica un prodotto esistente. Verifica che il prodotto esista, che la categoria sia valida e che il prezzo sia non negativo.
+   - `DELETE /api/product/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
+   - `POST /api/product/paginate`: Ricerca paginata prodotti
 
 - **Gestione Categorie Prodotti**:
   - `GET /api/productcategory/{id}`: Ottieni una categoria di prodotto specifica per ID.

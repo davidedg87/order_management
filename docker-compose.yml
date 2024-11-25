@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres-photosi:
+    image: postgres:latest
+    container_name: my-postgres-photosi
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: photoSiTest-db
+    ports:
+      - "6543:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Aggiungi questa riga
+    networks:
+      - app_network
+
+     
+  photositest_api:
+    build:
+      context: .  # Imposta il contesto al livello superiore
+      dockerfile: src/PhotoSiTest.API/Dockerfile  # Specifica il percorso del Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgres-photosi;Database=photoSiTest-db;Username=myuser;Password=mypassword;"
+    ports:
+      - "5002:8080"
+    depends_on:
+      - postgres-photosi
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+    
+volumes:
+  postgres_data:  # Volume per PostgreSQL

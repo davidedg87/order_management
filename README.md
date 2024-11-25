@@ -117,6 +117,9 @@ Se preferisci eseguire il progetto senza Docker o Podman, esegui i seguenti pass
 
 Le seguenti API sono disponibili nell'applicazione:
 
+- **Health**:
+- `GET /health`: Stato DB e DBContext associati 
+
 - **Gestione Utenti**:
   - `GET /api/users/{id}`: Ottieni un utente specifico per ID.
   - `GET /api/users`: Ottieni tutti gli utenti.

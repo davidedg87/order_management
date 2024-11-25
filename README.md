@@ -133,7 +133,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `DELETE /api/orders/{id}`: Elimina un ordine specifico.
   - `POST /api/orders/paginate`: Ricerca paginata ordini
 
-**Gestione Indirizzi**:
+- **Gestione Indirizzi**:
   - `GET /api/addresses/{id}`: Ottieni un indirizzo specifico per ID.
   - `GET /api/addresses`: Ottieni tutti gli indirizzi.
   - `POST /api/addresses`: Crea un nuovo indirizzo.
@@ -141,7 +141,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `DELETE /api/addresses/{id}`: Elimina un indirizzo specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
   - `POST /api/addresses/paginate`: Ricerca paginata indirizzi
 
-**Gestione Prodotti**:
+ - **Gestione Prodotti**:
   - `GET /api/products/{id}`: Ottieni un prodotto specifico per ID.
   - `GET /api/products`: Ottieni tutti i prodotti.
   - `POST /api/products`: Crea un nuovo prodotto. La categoria deve esistere e il prezzo non può essere inferiore a 0.
@@ -149,7 +149,7 @@ Le seguenti API sono disponibili nell'applicazione:
   - `DELETE /api/products/{id}`: Elimina un prodotto specifico, a condizione che non sia associato a ordini in stato "Pending" o "Processing".
   - `POST /api/products/paginate`: Ricerca paginata prodotti
 
-**Gestione Categorie Prodotti**:
+- **Gestione Categorie Prodotti**:
   - `GET /api/productcategories/{id}`: Ottieni una categoria di prodotto specifica per ID.
   - `GET /api/productcategories`: Ottieni tutte le categorie di prodotto.
   - `POST /api/productcategories`: Crea una nuova categoria di prodotto.
@@ -164,8 +164,9 @@ Porta di ascolto per le API:
 
 - In ambiente Docker:  
   La porta interna del container Docker è configurata su `5002`.
-  
--Nel repo è disponibile il file "postman_collection.json" da importare in Postman per avere l'elenco delle API da invocare sul progetto [ impostato per funzionare sulla porta 5002 quindi con container docker running]
+
+- **Catalogo API Json** 
+	Nel repo è disponibile il file "postman_collection.json" da importare in Postman per avere l'elenco delle API da invocare sul progetto [ impostato per funzionare sulla porta 5002 quindi con container docker running]
 
 ### 4. Testing
 

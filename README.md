@@ -1,8 +1,8 @@
-# Progetto PhotoSi
+# Progetto Order Management
 
 ## Descrizione
 
-PhotoSiTest è un'applicazione di test sviluppata in .NET che gestisce ordini, prodotti, categorie di prodotto, utenti e indirizzi di consegna. 
+Order Management è un'applicazione di test sviluppata in .NET che gestisce ordini, prodotti, categorie di prodotto, utenti e indirizzi di consegna. 
 Il sistema permette di creare e gestire ordini, ciascuno composto da uno o più prodotti, dove ogni prodotto appartiene a una categoria. 
 Ogni ordine è associato a un utente e a un indirizzo di consegna, consentendo di tracciare e gestire le informazioni in modo completo. 
 Il progetto è configurato per essere eseguito in un ambiente containerizzato utilizzando Podman e Podman Compose, 

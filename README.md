@@ -37,13 +37,13 @@ cd order_management
     version: '3.8'
 
     services:
-      postgres-photosi:
+      postgres-ordermanagement:
         image: postgres:latest
-        container_name: my-postgres-photosi
+        container_name: my-postgres-ordermanagement
         environment:
           POSTGRES_USER: myuser
           POSTGRES_PASSWORD: mypassword
-          POSTGRES_DB: photoSiTest-db
+          POSTGRES_DB: orderManagement-db
         ports:
           - "6543:5432"
         volumes:
@@ -51,17 +51,17 @@ cd order_management
         networks:
           - app_network
 
-      photositest_api:
+      ordermanagement_api:
         build:
           context: .  
-          dockerfile: PhotoSiTest.API/Dockerfile  
+          dockerfile: OrderManagement.API/Dockerfile  
         environment:
           ASPNETCORE_ENVIRONMENT: Development
-          ConnectionStrings__DefaultConnection: "Host=postgres-photosi;Database=photoSiTest-db;Username=myuser;Password=mypassword;"
+          ConnectionStrings__DefaultConnection: "Host=postgres-ordermanagement;Database=orderManagement-db;Username=myuser;Password=mypassword;"
         ports:
           - "5002:8080"
         depends_on:
-          - postgres-photosi
+          - postgres-ordermanagement
         networks:
           - app_network
 
@@ -83,7 +83,7 @@ cd order_management
     podman-compose -f docker-compose.yml up --build
     ```
 
-   Questo comando costruirà e avvierà i container per il database PostgreSQL e l'API PhotoSi.
+   Questo comando costruirà e avvierà i container per il database PostgreSQL e l'API OrderManagement.
 
 #### Senza Docker/Podman (In Locale):
 
@@ -91,7 +91,7 @@ Se preferisci eseguire il progetto senza Docker o Podman, esegui i seguenti pass
 
 1. **Configura PostgreSQL in locale**:
    - Installa PostgreSQL sul tuo sistema (seguendo le istruzioni per il tuo sistema operativo).
-   - Crea un database chiamato `photoSiTest-db` e un utente con i permessi necessari.
+   - Crea un database chiamato `orderManagement-db` e un utente con i permessi necessari.
 
 2. **Configura la Stringa di Connessione**:
    - Modifica il file `appsettings.Development.json` per includere la stringa di connessione al tuo database locale PostgreSQL:
@@ -99,7 +99,7 @@ Se preferisci eseguire il progetto senza Docker o Podman, esegui i seguenti pass
     ```json
     {
       "ConnectionStrings": {
-        "DefaultConnection": "Host=localhost;Database=photoSiTest-db;Username=myuser;Password=mypassword;"
+        "DefaultConnection": "Host=localhost;Database=orderManagement-db;Username=myuser;Password=mypassword;"
       }
     }
     ```
